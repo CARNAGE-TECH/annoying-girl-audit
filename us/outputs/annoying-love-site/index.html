@@ -1,0 +1,188 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Annoying Girl Audit</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;700;800;900&family=Playfair+Display:wght@700&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <main class="deck" aria-label="Annoying girlfriend slide quiz">
+      <div class="progress" aria-hidden="true">
+        <span class="progress-dot active"></span>
+        <span class="progress-dot"></span>
+        <span class="progress-dot"></span>
+        <span class="progress-dot"></span>
+        <span class="progress-dot"></span>
+        <span class="progress-dot"></span>
+        <span class="progress-dot"></span>
+        <span class="progress-dot"></span>
+      </div>
+
+      <section class="slide active intro-slide" data-slide="0">
+        <div class="slide-content intro-grid">
+          <div>
+            <p class="eyebrow">Official investigation</p>
+            <h1>Do you know how annoying you are?</h1>
+            <p class="intro">
+              I made a whole website because apparently simply telling you was not dramatic enough.
+            </p>
+            <button class="primary next-slide" type="button">Begin the case</button>
+          </div>
+
+          <div class="phone" aria-label="Fake chat interface">
+            <div class="phone-top">
+              <span></span>
+              <span></span>
+              <span></span>
+            </div>
+            <div class="chat">
+              <p class="bubble her">wyd</p>
+              <p class="bubble her">helloooo?</p>
+              <p class="bubble her">answer me</p>
+              <p class="bubble me">Collecting evidence.</p>
+              <p class="bubble her">of what?</p>
+              <p class="bubble me">Your annoying behavior.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="slide question-slide" data-slide="1" data-meter="82">
+        <div class="slide-content">
+          <p class="eyebrow">Question 01</p>
+          <h2>Do you know you are annoying?</h2>
+          <p class="caption">There is only one scientifically acceptable answer.</p>
+          <div class="actions chase-zone">
+            <button class="primary yes-answer" type="button">Yes, I know</button>
+            <button class="ghost no-answer" type="button">No, I am perfect</button>
+          </div>
+        </div>
+      </section>
+
+      <section class="slide question-slide" data-slide="2" data-meter="89">
+        <div class="slide-content">
+          <p class="eyebrow">Question 02</p>
+          <h2>Do you practice being this dramatic?</h2>
+          <p class="caption">Because the timing is suspiciously professional.</p>
+          <div class="actions chase-zone">
+            <button class="primary yes-answer" type="button">Yes, daily</button>
+            <button class="ghost no-answer" type="button">No, never</button>
+          </div>
+        </div>
+      </section>
+
+      <section class="slide question-slide" data-slide="3" data-meter="94">
+        <div class="slide-content">
+          <p class="eyebrow">Question 03</p>
+          <h2>When you say "nothing is wrong," is something very wrong?</h2>
+          <p class="caption">Please remember this website has already decided you are guilty.</p>
+          <div class="actions chase-zone">
+            <button class="primary yes-answer" type="button">Obviously yes</button>
+            <button class="ghost no-answer" type="button">Absolutely not</button>
+          </div>
+        </div>
+      </section>
+
+      <section class="slide question-slide" data-slide="4" data-meter="100">
+        <div class="slide-content">
+          <p class="eyebrow">Question 04</p>
+          <h2>Are you annoying on purpose because you know I love you?</h2>
+          <p class="caption">Careful. The annoying meter is already overheating.</p>
+          <div class="actions chase-zone">
+            <button class="primary yes-answer" type="button">Yes, and it works</button>
+            <button class="ghost no-answer" type="button">No comment</button>
+          </div>
+        </div>
+      </section>
+
+      <section class="slide rate-slide" data-slide="5">
+        <div class="slide-content">
+          <p class="eyebrow">Self-assessment</p>
+          <h2>How annoying do you think you are?</h2>
+          <p class="caption">Drag the meter. Be honest. Or try to be.</p>
+
+          <div class="rate" id="rate">
+            <p class="rate-readout" id="rateReadout">Very annoying</p>
+            <div
+              class="rate-track"
+              id="rateTrack"
+              role="slider"
+              tabindex="0"
+              data-autofocus
+              aria-label="How annoying do you think you are"
+              aria-valuemin="0"
+              aria-valuemax="100"
+              aria-valuenow="0"
+              aria-valuetext="Very annoying"
+            >
+              <div class="rate-bar"><div class="rate-fill"></div></div>
+              <div class="rate-thumb" aria-hidden="true">&#9829;</div>
+            </div>
+            <div class="rate-ends" aria-hidden="true">
+              <span>Very annoying</span>
+              <span>Not annoying at all</span>
+            </div>
+          </div>
+
+          <p class="rate-note" id="rateNote" role="status" aria-live="polite"></p>
+          <button id="rateLock" class="primary next-slide" type="button" disabled>Lock in my answer</button>
+        </div>
+      </section>
+
+      <section class="slide contract-slide" data-slide="6">
+        <div class="slide-content">
+          <p class="eyebrow">Binding agreement</p>
+          <h2>The no-hard-feelings contract</h2>
+
+          <div class="contract">
+            <p class="contract-intro">I, the annoying party, agree that:</p>
+            <ol class="clauses">
+              <li>I will not be upset about this website.</li>
+              <li>It was made with love, effort, and a lot of teasing.</li>
+              <li>The "No" button was never going to let me win, and I am fine with that.</li>
+              <li>If I am upset anyway, one forehead kiss counts as full compensation.</li>
+            </ol>
+
+            <div class="sign-row">
+              <label for="signName">Sign here</label>
+              <input id="signName" type="text" autocomplete="off" maxlength="30" placeholder="Type your name">
+            </div>
+
+            <div id="stamp" class="stamp" aria-hidden="true">Signed and loved</div>
+          </div>
+
+          <button id="signBtn" class="primary" type="button">Sign the contract</button>
+        </div>
+      </section>
+
+      <section class="slide final-slide" data-slide="7">
+        <div class="slide-content final-card">
+          <p class="eyebrow">Final verdict</p>
+          <h2>You are extremely annoying.</h2>
+          <p>
+            But you are my extremely annoying person, so your sentence is unlimited teasing,
+            surprise forehead kisses, and being loved anyway.
+          </p>
+          <button id="confettiBtn" class="primary" type="button">Accept your sentence</button>
+        </div>
+      </section>
+
+      <div class="meter-card" aria-label="Annoying meter">
+        <div class="meter-label">
+          <span>Annoying meter</span>
+          <strong id="meterValue">73%</strong>
+        </div>
+        <div class="meter" aria-hidden="true">
+          <span id="meterFill"></span>
+        </div>
+      </div>
+    </main>
+
+    <div id="toast" class="toast" role="status" aria-live="polite"></div>
+    <script src="script.js"></script>
+  </body>
+</html>
