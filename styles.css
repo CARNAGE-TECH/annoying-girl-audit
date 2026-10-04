@@ -500,12 +500,22 @@ h2 {
     font-size: 3.45rem;
   }
 
+  /* keep the chat visible on short windows, just tighter */
   .phone {
-    display: none;
+    padding: 12px;
   }
 
-  .intro-grid {
-    grid-template-columns: 1fr;
+  .phone-top {
+    padding: 2px 4px 10px;
+  }
+
+  .chat {
+    gap: 8px;
+  }
+
+  .bubble {
+    padding: 9px 13px;
+    font-size: 0.95rem;
   }
 
   .intro,
