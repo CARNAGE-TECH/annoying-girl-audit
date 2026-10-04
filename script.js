@@ -337,8 +337,28 @@ rateTrack.addEventListener("keydown", (event) => {
 
 const signName = document.querySelector("#signName");
 const signBtn = document.querySelector("#signBtn");
+const signHint = document.querySelector("#signHint");
 const stamp = document.querySelector("#stamp");
+const REQUIRED_SIGNATURE = "Hilary";
+const wrongNameMessages = [
+  "That is not the right name. Try again.",
+  "Still wrong. The contract is very specific.",
+  "Nope. It has to say exactly Hilary.",
+  "The contract does not accept nicknames.",
+  "Not accepted. Exactly Hilary, nothing else.",
+];
 let contractSigned = false;
+let wrongSignatures = 0;
+
+function rejectSignature(message) {
+  const row = signName.closest(".sign-row");
+  signHint.classList.add("error");
+  row.classList.remove("shake");
+  void row.offsetWidth; // restart the shake animation
+  row.classList.add("shake");
+  showToast(message);
+  signName.focus();
+}
 
 signBtn.addEventListener("click", () => {
   if (contractSigned) {
@@ -346,17 +366,37 @@ signBtn.addEventListener("click", () => {
     return;
   }
 
-  if (!signName.value.trim()) {
-    showToast("Type your name first. Initials do not count.");
-    signName.focus();
+  // Only stray spaces around the name are forgiven (phone keyboards add them).
+  // The letters and capitalization must match exactly.
+  const signature = signName.value.trim();
+
+  if (!signature) {
+    rejectSignature("Type your name first. Initials do not count.");
+    return;
+  }
+
+  if (signature !== REQUIRED_SIGNATURE) {
+    wrongSignatures += 1;
+    const closeButWrong = signature.toLowerCase() === REQUIRED_SIGNATURE.toLowerCase();
+    rejectSignature(
+      closeButWrong
+        ? "So close. Capitalization matters. Exactly Hilary."
+        : wrongNameMessages[(wrongSignatures - 1) % wrongNameMessages.length]
+    );
     return;
   }
 
   contractSigned = true;
+  signHint.classList.remove("error");
+  signName.value = REQUIRED_SIGNATURE;
   signName.disabled = true;
   stamp.classList.add("show");
   signBtn.textContent = "See the final verdict";
   showToast("Signed. This is now legally binding (emotionally).");
+});
+
+signName.addEventListener("input", () => {
+  signHint.classList.remove("error");
 });
 
 signName.addEventListener("keydown", (event) => {

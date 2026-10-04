@@ -149,8 +149,9 @@
 
             <div class="sign-row">
               <label for="signName">Sign here</label>
-              <input id="signName" type="text" autocomplete="off" maxlength="30" placeholder="Type your name">
+              <input id="signName" type="text" autocomplete="off" autocapitalize="words" spellcheck="false" maxlength="30" placeholder="Type your name" aria-describedby="signHint">
             </div>
+            <p id="signHint" class="sign-hint" role="status" aria-live="polite">The signature must read exactly "Hilary". No nicknames, no initials.</p>
 
             <div id="stamp" class="stamp" aria-hidden="true">Signed and loved</div>
           </div>
